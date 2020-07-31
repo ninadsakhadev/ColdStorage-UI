@@ -1,8 +1,15 @@
-<div style="text-align: center;">
-  <h1>Welcome to coldstorage!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-  />
-</div>
-<div>Message: {{ hello$ | async | json }}</div>
+<coldstorage-header
+  [title]="title"
+  [isAuthenticated]="isAuthenticated"
+  (sideNavToggle)="sideNav.toggle()"
+></coldstorage-header>
+<mat-sidenav-container [hasBackdrop]="false">
+  <mat-sidenav #sideNav [opened]="true" role="navigation">
+    <coldstorage-sidenav></coldstorage-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

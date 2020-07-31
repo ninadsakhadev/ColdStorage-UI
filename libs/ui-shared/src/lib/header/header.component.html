@@ -1,0 +1,26 @@
+<mat-toolbar color="primary" class="expanded-toolbar app-toolbar">
+  <div class="toolbar-left">
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a href="/" class="nav-link home"
+      ><img
+        src="assets/images/icon.png"
+        width="37"
+        height="40"
+        title="Home"
+        alt="Home"
+    /></a>
+    <button mat-button routerLink="/">{{ title }}</button>
+  </div>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm class="toolbar-right">
+    <button mat-button routerLink="/login" *ngIf="!isAuthenticated">
+      <mat-icon>power_settings_new</mat-icon>
+      Login
+    </button>
+    <button mat-button *ngIf="isAuthenticated" (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      Logout
+    </button>
+  </div>
+</mat-toolbar>

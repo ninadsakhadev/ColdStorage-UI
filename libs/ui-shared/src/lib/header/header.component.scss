@@ -1,0 +1,46 @@
+.app-toolbar {
+  display: flex;
+}
+.toolbar-left {
+  display: flex;
+  height: 6.4rem;
+  align-items: center;
+  a {
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 2.1rem 1rem;
+    display: flex;
+    align-items: center;
+  }
+  ::ng-deep .mat-button span {
+    font-size: 1.4rem;
+  }
+}
+.toolbar-right {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+mat-toolbar.mat-toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+}
+a:hover,
+a:active {
+  color: lightgray;
+}
+
+.navigation-items {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}

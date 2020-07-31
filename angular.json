@@ -25,7 +25,10 @@
               "apps/coldstorage/src/favicon.ico",
               "apps/coldstorage/src/assets"
             ],
-            "styles": ["apps/coldstorage/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "apps/coldstorage/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -203,6 +206,38 @@
             "tsConfig": "libs/api-interfaces/tsconfig.spec.json",
             "passWithNoTests": true
           }
+        }
+      }
+    },
+    "ui-shared": {
+      "projectType": "library",
+      "root": "libs/ui-shared",
+      "sourceRoot": "libs/ui-shared/src",
+      "prefix": "swamisamarth",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/ui-shared/tsconfig.lib.json",
+              "libs/ui-shared/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/ui-shared/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/ui-shared/jest.config.js",
+            "tsConfig": "libs/ui-shared/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/ui-shared/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
         }
       }
     }

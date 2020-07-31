@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@swamisamarth/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@swamisamarth/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@swamisamarth/ui-shared": ["libs/ui-shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

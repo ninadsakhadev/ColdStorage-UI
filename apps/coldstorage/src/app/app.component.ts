@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@swamisamarth/api-interfaces';
+import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'swamisamarth-root',
+  selector: 'coldstorage-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  title = 'Swami Samarth Cold Storage';
+  isAuthenticated: boolean = true;
+  constructor() {}
 }
