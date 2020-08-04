@@ -240,6 +240,70 @@
           "style": "scss"
         }
       }
+    },
+    "setup-customer": {
+      "projectType": "library",
+      "root": "libs/setup/customer",
+      "sourceRoot": "libs/setup/customer/src",
+      "prefix": "swamisamarth",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/setup/customer/tsconfig.lib.json",
+              "libs/setup/customer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/setup/customer/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/setup/customer/jest.config.js",
+            "tsConfig": "libs/setup/customer/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/setup/customer/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "setup-landing": {
+      "projectType": "library",
+      "root": "libs/setup/landing",
+      "sourceRoot": "libs/setup/landing/src",
+      "prefix": "swamisamarth",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/setup/landing/tsconfig.lib.json",
+              "libs/setup/landing/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/setup/landing/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/setup/landing/jest.config.js",
+            "tsConfig": "libs/setup/landing/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/setup/landing/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

@@ -1,0 +1,50 @@
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px;
+}
+.card-list-item {
+  padding: 20px;
+  vertical-align: top;
+  width: 280px;
+  text-decoration: none;
+}
+.card-list-card {
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  background: #fff;
+  ::ng-deep .mat-card-header-text {
+    display: flex;
+    flex: 1;
+  }
+}
+mat-card-header {
+  flex-direction: row-reverse;
+}
+
+mat-card-title {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 25px;
+  display: flex;
+  align-self: center;
+  margin-bottom: 0 !important;
+}
+mat-card-content {
+  margin-top: 10px;
+}
+mat-card-content p {
+  font-size: 16px;
+  line-height: 19px;
+  padding-bottom: 25px;
+  margin-left: 66px;
+}
+
+mat-icon {
+  font-size: 50px;
+  color: #9c9a9a;
+  margin-top: 5px;
+  height: auto !important;
+  width: auto !important;
+}

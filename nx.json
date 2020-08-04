@@ -37,6 +37,12 @@
     },
     "ui-shared": {
       "tags": []
+    },
+    "setup-customer": {
+      "tags": []
+    },
+    "setup-landing": {
+      "tags": []
     }
   }
 }

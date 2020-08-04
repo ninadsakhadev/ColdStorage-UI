@@ -1,0 +1,81 @@
+<div class="customer-content">
+  <div class="table-header">
+    <div class="dc-h3 header">Customers</div>
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        (keyup)="doFilter($event.target.value)"
+        placeholder="Filter"
+      />
+    </mat-form-field>
+  </div>
+  <div class="table-container">
+    <mat-table [dataSource]="dataSource" matSort>
+      <ng-container
+        matColumnDef="{{ column.id }}"
+        *ngFor="let column of columnNames"
+      >
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          {{ column.value }}</mat-header-cell
+        >
+        <mat-cell *matCellDef="let element"> {{ element[column.id] }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="noData">
+        <mat-cell
+          class="dc-label no-data-cell"
+          *matCellDef="let element"
+          [attr.colspan]="displayedColumns.length"
+        >
+          <ng-container *ngIf="!(error$ | async) && !loading">
+            <span class="dc-content">No Customers {{ error$ | json }}</span>
+          </ng-container>
+          <ng-container *ngIf="(error$ | async) && !loading">
+            <span class="dc-label">System Failure</span>
+            <span class="dc-content">Error</span>
+          </ng-container>
+          <ng-container *ngIf="loading">
+            <span class="dc-label">Retrieving data...</span>
+          </ng-container>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>
+          <button mat-icon-button color="primary" (click)="addNew()">
+            <mat-icon aria-label="Example icon-button with a heart icon"
+              >add</mat-icon
+            >
+          </button>
+        </mat-header-cell>
+
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button color="primary" (click)="startEdit(row)">
+            <mat-icon aria-label="Edit">edit</mat-icon>
+          </button>
+
+          <button mat-icon-button color="primary" (click)="deleteItem(row)">
+            <mat-icon aria-label="Delete">delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <ng-container *ngIf="!loading">
+        <mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          class="customer-row"
+        ></mat-row>
+      </ng-container>
+      <ng-container *ngIf="loading">
+        <mat-row
+          *matRowDef="let row; columns: ['noData']"
+          class="no-data-row"
+        ></mat-row>
+      </ng-container>
+    </mat-table>
+    <mat-paginator
+      [pageSize]="paginatorOptions[0]"
+      [pageSizeOptions]="paginatorOptions"
+    >
+    </mat-paginator>
+  </div>
+</div>

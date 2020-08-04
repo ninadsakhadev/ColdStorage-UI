@@ -17,7 +17,9 @@
     "baseUrl": ".",
     "paths": {
       "@swamisamarth/api-interfaces": ["libs/api-interfaces/src/index.ts"],
-      "@swamisamarth/ui-shared": ["libs/ui-shared/src/index.ts"]
+      "@swamisamarth/ui-shared": ["libs/ui-shared/src/index.ts"],
+      "@swamisamarth/setup/customer": ["libs/setup/customer/src/index.ts"],
+      "@swamisamarth/setup/landing": ["libs/setup/landing/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
